@@ -13,11 +13,19 @@ public class CircleOverlap
       double radius2 = in.nextDouble(); 
       double xcenter2 = 40;
       double ycenter2 = 0;
-      if (radius1>=40)
+      double check= radius1+ radius2;
+      if (check>40)
       {
-         
+             System.out.println("The circles are overlapping");
       }
-      
+      else if (check<40)
+      {
+             System.out.println("These circles disjointed");
+      }
+      else
+      {
+             System.out.println(" They circles mutually contained");   
+      }
 
    }
 }
