@@ -18,13 +18,13 @@ public class CircleOverlap
       {
              System.out.println("The circles are overlapping");
       }
-      else if (check<40)
+      else if (radius1>=radius2+40 || radius2>= radius1+40)
       {
-             System.out.println("These circles disjointed");
+             System.out.println("These circles are mutually contained");
       }
       else
       {
-             System.out.println(" They circles mutually contained");   
+             System.out.println("These circles disjointed");
       }
 
    }
