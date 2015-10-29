@@ -4,13 +4,20 @@ public class Calander
     {
         System.out.println("Su M T W Th F Sa");
         int d=1;
-        while (d<=31)
+        while (d<31)
         {
-            for (int i=1; i<7; i++)
+            for (int i=1; i<=7; i++)
             {
-                System.out.println(d);
+                    System.out.print(d+" ");
+                    d++;
+                    if (d>31)
+                    {
+                        break;
+                    }
+                    //continue;
             }
+            System.out.println("\n");
+        }
             
         }
-    }
 }
