@@ -63,10 +63,12 @@ public class GameOfLifeTest
         {
             for(int col = 0; col < COLS; col++)
             {
-                // in this example, an alive cell has a non-null actor and a dead cell has a null actor
+                // in this example, an alive cell has a non-null actor and a dead cell has a...
+                //null actor
                 Actor cell = game.getActor(row, col);
 
-                // if the cell at the current row and col should be alive, assert that the actor is not null
+                // if the cell at the current row and col should be alive, assert that the...
+                //actor is not null
                 if(     (row == 0 && col == 2) ||
                         (row == 2 && col == 0) ||
                         (row == 2 && col == 1))
