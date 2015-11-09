@@ -31,7 +31,7 @@ public class MontyHall
            String answer=scan.next();
            answer.toLowerCase();
 
-           if (answer =="y")
+           if (answer.equals("y"))
            {
               System.out.println("You have won a car");
               break;
