@@ -127,8 +127,7 @@ public class GameOfLife
         {
             for(int col = 0; col < COLS; col++)
             {
-               
-        
+                
             }
         }
         
