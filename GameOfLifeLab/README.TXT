@@ -18,7 +18,7 @@ The universe of the Game of Life is an infinite two-dimensional orthogonal
 	the cells that are horizontally, vertically, or diagonally adjacent. At
 	each step in time, the following transitions occur:
 
-* Grid is a given 20x20
+* Grid is a given 10x10
 * What do live cells look like? ==> |L|
 * Will run for 100 Generations by default, and also prompts the user to overwrite it.
 * What does a dead cell look like? ==> |D|
