@@ -130,9 +130,9 @@ public class GameOfLife
            {
               for(int col = 0; col < COLS; col++)
               {
-                 Location loc = new Location(row, col);
+                 Location loca = new Location(row, col);
                  
-                 // ArrayList<Actor> pointArray =grid.getNeighbors(loc);
+                 //ArrayList<Actors> pointArray =grid.getNeighbors(loca);
                  
                  //int numNeighbors= pointArray.size();
              }
