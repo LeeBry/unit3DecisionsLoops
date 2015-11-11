@@ -107,7 +107,7 @@ public class GameOfLife
      * @post    the world has been populated with a new grid containing the next generation
      * 
      */
-    private void createNextGeneration()
+    public void createNextGeneration()
     {
         /** You will need to read the documentation for the World, Grid, and Location classes
          *      in order to implement the Game of Life algorithm and leverage the GridWorld framework.
@@ -123,14 +123,21 @@ public class GameOfLife
          * 4. Dead cells with exactly 3 live cells becomes alive.
          */
         // insert magic here...
-        for(int row = 0; row < ROWS; row++)
-        {
-            for(int col = 0; col < COLS; col++)
-            {
-                
-            }
-        }
+       
         
+          
+           for(int row = 0; row < ROWS; row++)
+           {
+              for(int col = 0; col < COLS; col++)
+              {
+                 Location loc = new Location(row, col);
+                 
+                 // ArrayList<Actor> pointArray =grid.getNeighbors(loc);
+                 
+                 //int numNeighbors= pointArray.size();
+             }
+           }
+       
     }
     
     /**
