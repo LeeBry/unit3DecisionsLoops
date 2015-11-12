@@ -5,6 +5,7 @@ import info.gridworld.grid.Grid;
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Location;
 
+
 /**
  * Game of Life starter code. Demonstrates how to create and populate the game using the GridWorld framework.
  * Also demonstrates how to provide accessor methods to make the class testable by unit tests.
@@ -132,9 +133,9 @@ public class GameOfLife
               {
                  Location loca = new Location(row, col);
                  
-                 //ArrayList<Actors> pointArray =grid.getNeighbors(loca);
+                 ArrayList <Actors> pointArray =grid.getNeighbors(loca);
                  
-                 //int numNeighbors= pointArray.size();
+                 int numNeighbors= pointArray.size();
              }
            }
        
