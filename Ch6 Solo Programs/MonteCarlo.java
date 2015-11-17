@@ -19,7 +19,9 @@ public class MonteCarlo
             r= gen.nextDouble();
             double y= -1+2*r;
             if (x*x+y*y <=1)
-            {hits++;}
+            {
+                hits++;
+            }
         }
         double piEstimate = 4.0* hits/ TRIES;
         System.out.println("Estimate for pi: "+ piEstimate);

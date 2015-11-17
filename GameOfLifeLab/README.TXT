@@ -18,8 +18,17 @@ The universe of the Game of Life is an infinite two-dimensional orthogonal
 	the cells that are horizontally, vertically, or diagonally adjacent. At
 	each step in time, the following transitions occur:
 
+* Grid is a given 10x10
+* What do live cells look like? ==> |L|
+* Will run for 100 Generations by default, and also prompts the user to overwrite it.
+* What does a dead cell look like? ==> |D|
+* The inital pattern looks like a straight line of 10 live cells.
+* Time interval == 1sec/generation
+* Does NOT wrap around the world
+* 
 * Any live cell with fewer than two live neighbours dies, as if caused by
 	underpopulation.
+	
 * Any live cell with two or three live neighbours lives on to the next generation.
 * Any live cell with more than three live neighbours dies, as if by overcrowding.
 * Any dead cell with exactly three live neighbours becomes a live cell, as if

@@ -46,13 +46,17 @@ public class GameOfLifeTest
         /* expected pattern for initial state
          *  (X: alive; -: dead)
          * 
-         *    0 1 2 3 4
-         *  0 - - X - -
-         *  1 - - - - -
-         *  2 X X - - -
-         *  3 - - - - -
-         *  4 - - - - -
-         *  
+         *    1 2 3 4 5 6 7 8 9 10 
+         *  1 - - - - - - - - - - 
+         *  2 - - - - - - - - - - 
+         *  3 - - - - - - - - - - 
+         *  4 - - - - - - - - - -  
+         *  5 - - - - - - - - - - 
+         *  6 - - X X X X X - - - 
+         *  7 - - - - - - - - - - 
+         *  8 - - - - - - - - - - 
+         *  9 - - - - - - - - - -  
+         *  10- - - - - - - - - - 
          */
         
         GameOfLife game = new GameOfLife();
@@ -63,13 +67,19 @@ public class GameOfLifeTest
         {
             for(int col = 0; col < COLS; col++)
             {
-                // in this example, an alive cell has a non-null actor and a dead cell has a null actor
+                // in this example, an alive cell has a non-null actor and a dead cell has a...
+                //null actor
                 Actor cell = game.getActor(row, col);
+                // 5 Actors will line up in a row starting at (3,6), and end at (7,6)
 
-                // if the cell at the current row and col should be alive, assert that the actor is not null
-                if(     (row == 0 && col == 2) ||
-                        (row == 2 && col == 0) ||
-                        (row == 2 && col == 1))
+                // if the cell at the current row and col should be alive, assert that the...
+                //actor is not null
+                if(     (row == 6 && col == 3) ||
+                        (row == 6 && col == 4) ||
+                        (row == 6 && col == 5) ||
+                        (row == 6 && col == 6) ||
+                        (row == 6 && col == 7
+                         ))
                 {
                     assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);
                 }

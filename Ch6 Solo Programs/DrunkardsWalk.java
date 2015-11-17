@@ -12,10 +12,10 @@ public class DrunkardsWalk
         for (int i =0; i !=walked; i++)
         {
             direction= gen.nextInt(4)+1;
-            //1= North y+1
-            //2= East x+1
-            //3= South y-1
-            //4= West x-1
+            //1= North y+1.
+            //2= East x+1.
+            //3= South y-1.
+            //4= West x-1.
             if (direction ==1)
             {
                 y+=1;

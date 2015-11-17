@@ -16,10 +16,10 @@ public class GameOfLife
 {
     // the world comprised of the grid that displays the graphics for the game
     private ActorWorld world;
-    
-    // the game board will have 5 rows and 5 columns
-    private final int ROWS = 5;
-    private final int COLS = 5;
+    int k= 2;
+    // the game board will have 10 rows and 10 columns
+    private final int ROWS = 10;
+    private final int COLS = 10;
     
     /**
      * Default constructor for objects of class GameOfLife
@@ -53,26 +53,50 @@ public class GameOfLife
     private void populateGame()
     {
         // constants for the location of the three cells initially alive
-        final int X1 = 2, Y1 = 0;
-        final int X2 = 0, Y2 = 2;
-        final int X3 = 1, Y3 = 2;
+        /* expected pattern for initial state
+         *  (X: alive; -: dead) 
+         *    1 2 3 4 5 6 7 8 9 10 
+         *  1 - - - - - - - - - - 
+         *  2 - - - - - - - - - - 
+         *  3 - - - - - - - - - - 
+         *  4 - - - - - - - - - -  
+         *  5 - - - - - - - - - - 
+         *  6 - - X X X X X - - - 
+         *  7 - - - - - - - - - - 
+         *  8 - - - - - - - - - - 
+         *  9 - - - - - - - - - -  
+         *  10- - - - - - - - - - 
+         */
+        final int X1 = 3, Y1 = 6;
+        final int X2 = 4, Y2 = 6;
+        final int X3 = 5, Y3 = 6;
+        final int X4 = 6, Y4 = 6;
+        final int X5 = 7, Y5 = 6;
 
         // the grid of Actors that maintains the state of the game
         //  (alive cells contains actors; dead cells do not)
         Grid<Actor> grid = world.getGrid();
         
-        // create and add rocks (a type of Actor) to the three intial locations
-        Rock rock1 = new Rock();
+        // create and add actors to the five initial locations given.
+        Actor act1 = new Actor();
         Location loc1 = new Location(Y1, X1);
-        grid.put(loc1, rock1);
+        grid.put(loc1, act1);
         
-        Rock rock2 = new Rock();
+        Actor act2 = new Actor();
         Location loc2 = new Location(Y2, X2);
-        grid.put(loc2, rock2);
+        grid.put(loc2, act2);
         
-        Rock rock3 = new Rock();
+        Actor act3 = new Actor();
         Location loc3 = new Location(Y3, X3);
-        grid.put(loc3, rock3);
+        grid.put(loc3, act3);
+        
+        Actor act4 = new Actor();
+        Location loc4 = new Location(Y4, X4);
+        grid.put(loc4, act4);
+        
+        Actor act5 = new Actor();
+        Location loc5 = new Location(Y5, X5);
+        grid.put(loc5, act5);
     }
 
     /**
@@ -91,8 +115,21 @@ public class GameOfLife
         
         // create the grid, of the specified size, that contains Actors
         Grid<Actor> grid = world.getGrid();
-        
+        // RULES:
+        /*
+         * 1. Cell with fewer tjam 2 neighbours will die
+         * 2. Cell with 3+ neighbours will die.
+         * 3. Cell with 2-3 neighbours will will till next gen.
+         * 4. Dead cells with exactly 3 live cells becomes alive.
+         */
         // insert magic here...
+        for(int row = 0; row < ROWS; row++)
+        {
+            for(int col = 0; col < COLS; col++)
+            {
+                
+            }
+        }
         
     }
     
