@@ -41,7 +41,11 @@ public class GameOfLife
         
         // display the newly constructed and populated world
         world.show();
-        
+        int i;
+        for (i=0; i<=100; i++)
+        {
+            createNextGeneration();
+        }
     }
     
     /**
@@ -116,6 +120,8 @@ public class GameOfLife
         
         // create the grid, of the specified size, that contains Actors
         Grid<Actor> grid = world.getGrid();
+        BoundedGrid<Actor> grid2 = new BoundedGrid<Actor>(ROWS, COLS);
+        
         // RULES:
         /*
          * 1. Cell with fewer than 2 neighbours will die
@@ -132,21 +138,22 @@ public class GameOfLife
                  
                  ArrayList<Actor> pointArray =grid.getNeighbors(loca);
                  int numNeighbors= pointArray.size();
+                 
                  if (numNeighbors <2 || numNeighbors >3 )
                  {
-                     Actor.remove(loca);
+                     grid2.remove(loca);
                     }
                  else if (numNeighbors>=2 && numNeighbors<=3)
                  {
-                     Actor.add(loca,Actor);
+                     grid2.put(loca, new Actor());
                     }
                  else if ( numNeighbors==3)
                  {
-                     Actor.add(loca);
+                     grid2.put(loca,new Actor());
                     }
              }
            }
-       
+       world.setGrid(grid2);
     }
     
     /**
