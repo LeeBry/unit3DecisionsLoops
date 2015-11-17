@@ -16,7 +16,7 @@ public class GameOfLife
 {
     // the world comprised of the grid that displays the graphics for the game
     private ActorWorld world;
-    int k= 2;
+
     // the game board will have 10 rows and 10 columns
     private final int ROWS = 10;
     private final int COLS = 10;
