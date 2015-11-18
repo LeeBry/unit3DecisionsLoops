@@ -5,7 +5,8 @@ import info.gridworld.grid.Grid;
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Location;
 import java.util.ArrayList;
-
+import java.util.Scanner;
+import java.util.Timer;
 /**
  * Game of Life starter code. Demonstrates how to create and populate the game using the GridWorld framework.
  * Also demonstrates how to provide accessor methods to make the class testable by unit tests.
@@ -42,9 +43,28 @@ public class GameOfLife
         // display the newly constructed and populated world
         world.show();
         int i;
-        for (i=0; i<=100; i++)
+        Scanner scan= new Scanner(System.in);
+        System.out.println("Would you like to input the number of generations?(y/n)");
+        String yn= scan.next().toLowerCase();
+        if (yn.equals("y"))
         {
+         System.out.println("How many generations would you like to past by?");
+         int end= scan.nextInt();
+         for (i=0; i<=end; i++)
+         {
             createNextGeneration();
+            //Thread.sleep(1000);
+
+         }
+        }
+        else
+        {
+         System.out.println("Generations default set to: 100");
+         for (i=0; i<=100; i++)
+         {
+            createNextGeneration();
+            //Thread.sleep(1000);
+         }
         }
     }
     
@@ -130,26 +150,33 @@ public class GameOfLife
          * 4. Dead cells with exactly 3 live cells becomes alive.
          */
         // insert magic here...
+        
            for(int row = 0; row < ROWS; row++)
            {
               for(int col = 0; col < COLS; col++)
               {
                  Location loca = new Location(row, col);
-                 
+
                  ArrayList<Actor> pointArray =grid.getNeighbors(loca);
                  int numNeighbors= pointArray.size();
                  
-                 if (numNeighbors <2 || numNeighbors >3 )
+        
+                 if ((numNeighbors <2 || numNeighbors >3)&&(grid.get(loca)==null) )
                  {
-                     grid2.remove(loca);
+                     continue; 
                     }
-                 else if (numNeighbors>=2 && numNeighbors<=3)
+                 else if (numNeighbors <2 || numNeighbors >3)
+                 {
+                     continue;
+                    }
+                 else if ((numNeighbors>=2 && numNeighbors<=3)&&(grid.get(loca)!=null))
                  {
                      grid2.put(loca, new Actor());
                     }
-                 else if ( numNeighbors==3)
+                 else if ( (numNeighbors==3)&&(grid.get(loca)==null) )
                  {
                      grid2.put(loca,new Actor());
+                    
                     }
              }
            }
