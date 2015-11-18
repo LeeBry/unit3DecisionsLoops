@@ -81,7 +81,10 @@ Artifacts to Produce:
             Only thing I disliked about this was getting confused with the if
             statements, and && or || statements. Advice I would give to next
             year's students is to lay out all the rules first, then execute
-            step by step. It saves you time and brain power.
+            step by step. It saves you time and brain power. What I didn't
+            expect was some && and || statements tricking me.
+            What I learned from this lab, was that I need to write things
+            out before executing.
 
 
 Submission:
