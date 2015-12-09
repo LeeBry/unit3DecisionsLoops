@@ -22,7 +22,7 @@ public class GameOfLife
     // the game board will have 10 rows and 10 columns
     private final int ROWS = 10;
     private final int COLS = 10;
-    
+
     /**
      * Default constructor for objects of class GameOfLife
      * 
@@ -33,13 +33,13 @@ public class GameOfLife
     {
         // create the grid, of the specified size, that contains Actors
         BoundedGrid<Actor> grid = new BoundedGrid<Actor>(ROWS, COLS);
-        
+
         // create a world based on the grid
         world = new ActorWorld(grid);
-        
+
         // populate the game
         populateGame();
-        
+
         // display the newly constructed and populated world
         world.show();
         int i;
@@ -48,26 +48,40 @@ public class GameOfLife
         String yn= scan.next().toLowerCase();
         if (yn.equals("y"))
         {
-         System.out.println("How many generations would you like to past by?");
-         int end= scan.nextInt();
-         for (i=0; i<=end; i++)
-         {
-            createNextGeneration();
-            //Thread.sleep(1000);
+            System.out.println("How many generations would you like to past by?");
+            int end= scan.nextInt();
+            for (i=0; i<=end; i++)
+            {
+                createNextGeneration();
+                try 
+                {
+                  Thread.sleep(1000);
+                }
+                  catch (InterruptedException ex){
+                  Thread.currentThread().interrupted();
+                    }
+                  
+                 }
 
-         }
+            
         }
         else
         {
-         System.out.println("Generations default set to: 100");
-         for (i=0; i<=100; i++)
-         {
-            createNextGeneration();
-            //Thread.sleep(1000);
-         }
+            System.out.println("Generations default set to: 100");
+            for (i=0; i<=100; i++)
+            {
+                createNextGeneration();
+                try 
+                {
+                  Thread.sleep(1000);
+                }
+                  catch (InterruptedException ex){
+                  Thread.currentThread().interrupted();
+                    }
+            }
         }
     }
-    
+
     /**
      * Creates the actors and inserts them into their initial starting positions in the grid
      *
@@ -101,24 +115,24 @@ public class GameOfLife
         // the grid of Actors that maintains the state of the game
         //  (alive cells contains actors; dead cells do not)
         Grid<Actor> grid = world.getGrid();
-        
+
         // create and add actors to the five initial locations given.
         Actor act1 = new Actor();
         Location loc1 = new Location(Y1, X1);
         grid.put(loc1, act1);
-        
+
         Actor act2 = new Actor();
         Location loc2 = new Location(Y2, X2);
         grid.put(loc2, act2);
-        
+
         Actor act3 = new Actor();
         Location loc3 = new Location(Y3, X3);
         grid.put(loc3, act3);
-        
+
         Actor act4 = new Actor();
         Location loc4 = new Location(Y4, X4);
         grid.put(loc4, act4);
-        
+
         Actor act5 = new Actor();
         Location loc5 = new Location(Y5, X5);
         grid.put(loc5, act5);
@@ -137,11 +151,11 @@ public class GameOfLife
         /** You will need to read the documentation for the World, Grid, and Location classes
          *      in order to implement the Game of Life algorithm and leverage the GridWorld framework.
          */
-        
+
         // create the grid, of the specified size, that contains Actors
         Grid<Actor> grid = world.getGrid();
         BoundedGrid<Actor> grid2 = new BoundedGrid<Actor>(ROWS, COLS);
-        
+
         // RULES:
         /*
          * 1. Cell with fewer than 2 neighbours will die
@@ -150,39 +164,38 @@ public class GameOfLife
          * 4. Dead cells with exactly 3 live cells becomes alive.
          */
         // insert magic here...
-        
-           for(int row = 0; row < ROWS; row++)
-           {
-              for(int col = 0; col < COLS; col++)
-              {
-                 Location loca = new Location(row, col);
 
-                 ArrayList<Actor> pointArray =grid.getNeighbors(loca);
-                 int numNeighbors= pointArray.size();
-                 
-        
-                 if ((numNeighbors <2 || numNeighbors >3)&&(grid.get(loca)==null) )
-                 {
-                     continue; 
-                    }
-                 else if (numNeighbors <2 || numNeighbors >3)
-                 {
-                     continue;
-                    }
-                 else if ((numNeighbors>=2 && numNeighbors<=3)&&(grid.get(loca)!=null))
-                 {
-                     grid2.put(loca, new Actor());
-                    }
-                 else if ( (numNeighbors==3)&&(grid.get(loca)==null) )
-                 {
-                     grid2.put(loca,new Actor());
-                    
-                    }
-             }
-           }
-       world.setGrid(grid2);
+        for(int row = 0; row < ROWS; row++)
+        {
+            for(int col = 0; col < COLS; col++)
+            {
+                Location loca = new Location(row, col);
+
+                ArrayList<Actor> pointArray =grid.getNeighbors(loca);
+                int numNeighbors= pointArray.size();
+
+                if ((numNeighbors <2 || numNeighbors >3)&&(grid.get(loca)==null) )
+                {
+                    continue; 
+                }
+                else if (numNeighbors <2 || numNeighbors >3)
+                {
+                    continue;
+                }
+                else if ((numNeighbors>=2 && numNeighbors<=3)&&(grid.get(loca)!=null))
+                {
+                    grid2.put(loca, new Actor());
+                }
+                else if ( (numNeighbors==3)&&(grid.get(loca)==null) )
+                {
+                    grid2.put(loca,new Actor());
+
+                }
+            }
+        }
+        world.setGrid(grid2);
     }
-    
+
     /**
      * Returns the actor at the specified row and column. Intended to be used for unit testing.
      *
@@ -207,7 +220,7 @@ public class GameOfLife
     {
         return ROWS;
     }
-    
+
     /**
      * Returns the number of columns in the game board
      *
@@ -217,8 +230,7 @@ public class GameOfLife
     {
         return COLS;
     }
-    
-    
+
     /**
      * Creates an instance of this class. Provides convenient execution.
      *
